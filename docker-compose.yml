@@ -1,0 +1,44 @@
+version: "3"
+services:
+    mongo:
+        image: mongo:5.0
+        restart: unless-stopped
+        container_name: "genieacs-mongodb"
+        environment:
+            - MONGO_DATA_DIR=/data/db
+            - MONGO_LOG_DIR=/var/log/mongodb
+        volumes:
+            - mongo_data:/data/db
+            - mongo_conf:/data/configdb
+        expose:
+            - "27017"
+        networks:
+            genieacs:
+                aliases:
+                    - mongodb
+
+    genieacs:
+        depends_on:
+            - 'mongo'
+        image: mailsvb/genieacs:latest
+        restart: unless-stopped
+        container_name: "genieacs-main"
+        volumes:
+            - genie_data:/opt
+        ports:
+            - "3000:3000/tcp"
+            - "3478:3478/udp"
+            - "7547:7547/tcp"
+            - "7567:7567/tcp"
+        networks:
+            genieacs:
+                aliases:
+                    - genieacs
+
+networks:
+    genieacs:
+
+volumes:
+    mongo_data:
+    mongo_conf:
+    genie_data:
