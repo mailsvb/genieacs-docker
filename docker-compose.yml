@@ -20,7 +20,7 @@ services:
     genieacs:
         depends_on:
             - 'mongo'
-        image: mailsvb/genieacs:latest
+        image: mailsvb/genieacs:1.2.8
         restart: unless-stopped
         container_name: "genieacs-main"
         volumes:
