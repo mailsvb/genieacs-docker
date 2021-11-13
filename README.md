@@ -1,5 +1,9 @@
 A Docker container running instances of genieacs cwmp, genieacs api, genieacs ui and coturn (STUN server)
 
+[![GitHub Workflow - CI](https://github.com/mailsvb/genieacs-docker/workflows/build/badge.svg)](https://github.com/mailsvb/genieacs-docker/actions?workflow=build)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/mailsvb/genieacs-docker)](https://github.com/mailsvb/genieacs-docker/releases/latest)
+[![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/mailsvb/genieacs?sort=semver)](https://hub.docker.com/repository/docker/mailsvb/genieacs)
+
 ## Requirements
 *  docker
 *  docker-compose
